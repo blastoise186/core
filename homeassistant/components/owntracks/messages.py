@@ -172,7 +172,7 @@ def encrypt_message(secret, topic, message):
     try:
         message = message.encode("utf-8")
         payload = SecretBox(key).encrypt(message, encoder=Base64Encoder)
-        _LOGGER.debug("Encrypted message: %s to %s", message, payload)
+        _LOGGER.debug("Encrypted message to %s", payload)
         return payload.decode("utf-8")
     except ValueError:
         _LOGGER.warning("Unable to encrypt message for topic %s", topic)
